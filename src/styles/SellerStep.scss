@@ -1,0 +1,278 @@
+.seller-step-container {
+  display: flex;
+  min-height: 100vh;
+
+  .left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #3a8ef6, #2764f0);
+    color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .tagline {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .description {
+      max-width: 300px;
+      line-height: 1.4;
+    }
+  }
+
+  .right-panel {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; // pour step-indicator
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-top: 1rem;
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+      }
+
+      input,
+      select {
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .terms {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .submit-btn {
+        margin-top: 1.5rem;
+        background-color: #2764f0;
+        color: white;
+        padding: 0.8rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background-color: #174ad1;
+        }
+      }
+
+      .error {
+        color: red;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      color: #2764f0;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .step-indicator {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      text-align: right;
+
+      .step-count {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #888;
+      }
+
+      .step-label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #666;
+      }
+    }
+  }
+
+  .language-selector {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 500;
+      font-size: 14px;
+      color: #333;
+    }
+
+    select {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+
+      &:hover,
+      &:focus {
+        border-color: #2764f0;
+        outline: none;
+      }
+    }
+  }
+
+  /* -------- Responsive Tablette -------- */
+  @media (max-width: 1024px) {
+    .left-panel {
+      padding: 2rem;
+      h1 {
+        font-size: 1.6rem;
+      }
+      .description {
+        max-width: 250px;
+      }
+    }
+
+    .right-panel {
+      padding: 2rem;
+      h2 {
+        font-size: 1.5rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .form-box input,
+      .form-box select {
+        font-size: 0.9rem;
+      }
+      .submit-btn {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+      }
+      .language-selector {
+        bottom: 1rem;
+      }
+    }
+  }
+
+  /* -------- Responsive Mobile -------- */
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .left-panel {
+      display: none !important;
+    }
+
+    .right-panel {
+      flex: none;
+      width: 100%;
+      padding: 2rem 1.5rem;
+      justify-content: flex-start;
+
+      h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+      .subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+      }
+      .form-box input,
+      .form-box select {
+        font-size: 0.95rem;
+      }
+      .submit-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+      }
+
+      .step-indicator {
+        position: static;
+        margin-bottom: 1rem;
+        text-align: left;
+
+        .step-count,
+        .step-label {
+          font-size: 0.85rem;
+          color: #555;
+        }
+      }
+    }
+
+    .language-selector {
+      position: static;
+      transform: none;
+      margin: 1rem 0 0 0;
+      justify-content: flex-start;
+    }
+  }
+
+  /* -------- Responsive Très petit mobile -------- */
+  @media (max-width: 480px) {
+    .right-panel {
+      padding: 1.5rem 1rem;
+
+      h2 {
+        font-size: 1.1rem;
+      }
+      .subtitle {
+        font-size: 0.9rem;
+      }
+      .form-box input,
+      .form-box select {
+        font-size: 0.9rem;
+      }
+      .submit-btn {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+      }
+    }
+
+    .language-selector {
+      font-size: 13px;
+
+      label {
+        font-size: 13px;
+      }
+
+      select {
+        font-size: 13px;
+        padding: 5px 10px;
+      }
+    }
+  }
+}
